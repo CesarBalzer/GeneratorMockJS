@@ -1,0 +1,2 @@
+# GeneratorMockJS
+Created with CodeSandbox
