@@ -1,11 +1,13 @@
 import React from "react";
 import "./styles.css";
 
-const InputNumber = ({ label, value, callback }) => {
+const InputNumber = ({ label, value, classe, callback }) => {
   return (
     <div className="inputNumber">
-      <label>{label}</label>
+      <label htmlFor="ipt">{label}</label>
       <input
+        id="ipt"
+        className={`button ${classe}`}
         type="number"
         min={1}
         max={99}

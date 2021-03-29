@@ -1,25 +1,64 @@
 .App {
   margin: 0;
   padding: 20px;
-  text-align: center;
   font-family: "Roboto", sans-serif;
+}
+
+.title {
+  text-align: center;
+  background-color: rgb(61, 88, 139);
+  color: #fff;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 6px 1px rgb(78, 78, 78);
+}
+.description {
+  color: #555;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 1px rgb(78, 78, 78);
+  margin-bottom: 20px;
+}
+.container {
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px 1px rgb(78, 78, 78);
 }
 .container-inputs {
   display: flex;
   justify-content: space-evenly;
-}
-
-.container-inputs .inputs {
   margin-top: 20px;
 }
 
-.actions {
+.container-actions {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
 .mocks {
   margin-top: 20px;
+  margin-right: 70px;
+  color: #555;
+}
+
+.copy {
+  background-color: #555;
+  padding: 5px;
+  border-radius: 4px;
+  color: #fff;
+  text-align: right;
+  margin: 5px -50px 0px 0px;
+  float: right;
+}
+
+textarea {
+  padding: 20px;
+  width: 100%;
+  min-height: 80px;
+  font-size: 14px;
+  display: block;
+  border-radius: 10px;
+  border: 6px solid #556677;
 }

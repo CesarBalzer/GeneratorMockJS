@@ -6,7 +6,7 @@ const InputButton = ({ text, disabled, classe, callback }) => {
     <div className="inputButton">
       <button
         type="button"
-        className={classe}
+        className={`button ${classe}`}
         disabled={disabled}
         onClick={callback}
       >

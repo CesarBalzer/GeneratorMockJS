@@ -3,8 +3,8 @@ import "./styles.css";
 
 const InputReset = ({ text, classe, callback }) => {
   return (
-    <div className="inputReset">
-      <button type="reset" className={classe} onClick={callback}>
+    <div className="inputButton">
+      <button type="reset" className={`button ${classe}`} onClick={callback}>
         {text}
       </button>
     </div>
