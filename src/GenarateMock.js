@@ -1,33 +1,7 @@
 const genMock = async (qtde_cat, qtde_sub) => {
   const cats = await genCategory(qtde_cat);
-  // console.log(
-  //   "------------------------CATEGORIES--------------------------------"
-  // );
-  // console.log(cats)
-  // console.log(cats.join(","));
-  // console.log(
-  //   "------------------------END CATEGORIES--------------------------------"
-  // );
-
   const subs = await genSubCategory(qtde_cat, qtde_sub);
-  // console.log(
-  //   "------------------------SUB CATEGORIES--------------------------------"
-  // );
-  // console.log(subs)
-  // console.log(subs.join(","));
-  // console.log(
-  //   "------------------------END SUB CATEGORIES--------------------------------"
-  // );
-
-  const prods = await genProduct(qtde_cat, subs.length);
-  // console.log(
-  //   "------------------------PRODUCTS--------------------------------"
-  // );
-  // console.log(prods)
-  // console.log(prods.join(","));
-  // console.log(
-  //   "------------------------END PRODUCTS--------------------------------"
-  // );
+  const prods = await genProduct(qtde_cat, subs.objects.length);
 
   return { cats, subs, prods };
 };
@@ -38,14 +12,21 @@ const genMock = async (qtde_cat, qtde_sub) => {
  * @param {int} qtde_sub Number of sub-categories for generate
  */
 const genCategory = async (qtde_cat) => {
-  let cats = [];
+  let strings = [];
+  let objects = [];
   for (let i = 1; i <= qtde_cat; i++) {
-    cats.push(
+    strings.push(
       `{ id_category: ${i}, title:'Category test ${i}', description: 'Description of category test ${i}', active:true }`
     );
+    objects.push({
+      id_category: i,
+      title: `Category test ${i}`,
+      description: `Description of category test ${i}`,
+      active: true
+    });
   }
 
-  return cats;
+  return { strings, objects };
 };
 /**
  * Generate sub-categories
@@ -56,21 +37,28 @@ const genSubCategory = async (categories, qtde) => {
   let id_category = 1;
   let ini = 1;
   let fim = categories * qtde;
-  let subs = [];
+  let strings = [];
+  let objects = [];
   for (let i = ini; i <= fim; i++) {
-    //Generate object
-    // subs.push({ id_subcategory: i, name: `Subcategory test ${i}`, description: `Description of subcategory test ${i}`, active: true, category: id_category });
-
     //Generate string
-    subs.push(
+    strings.push(
       `{ id_subcategory: ${i}, name:'Subcategory test ${i}', description: 'Description of subcategory test ${i}', active:true, category:${id_category} }`
     );
+
+    //Generate object
+    objects.push({
+      id_subcategory: i,
+      name: `Subcategory test ${i}`,
+      description: `Description of subcategory test ${i}`,
+      active: true,
+      category: id_category
+    });
 
     if (i % qtde === 0) {
       id_category++;
     }
   }
-  return subs;
+  return { strings, objects };
 };
 
 /**
@@ -84,16 +72,26 @@ const genProduct = async (subs, cats) => {
   let id_subcategory = 1;
   let ini = 1;
   let fim = cats * subs;
-  let prods = [];
+  let strings = [];
+  let objects = [];
 
   for (let i = ini; i <= fim; i++) {
-    //Generate object
-    // prods.push({ id_product: i, name: `Product test ${i}`, description: `Description of product test ${i}`, image: ``, price: `R$ 18,99`, active: true, category: id_category, subcategory: id_subcategory });
-
     //Generate string
-    prods.push(
+    strings.push(
       `{ id_product: ${i}, name:'Product test ${i}', description: 'Description of product test ${i}', image:'', price:'R$ 18,99', active:true, category:${id_category}, subcategory:${id_subcategory} }`
     );
+
+    //Generate object
+    objects.push({
+      id_product: i,
+      name: `Product test ${i}`,
+      description: `Description of product test ${i}`,
+      image: ``,
+      price: `R$ 18,99`,
+      active: true,
+      category: id_category,
+      subcategory: id_subcategory
+    });
 
     if (i % subs === 0) {
       id_subcategory++;
@@ -103,7 +101,7 @@ const genProduct = async (subs, cats) => {
       id_subcategory = 1;
     }
   }
-  return prods;
+  return { strings, objects };
 };
 
 export default genMock;

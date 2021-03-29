@@ -13,52 +13,11 @@
   margin-top: 20px;
 }
 
-.container-inputs .inputs label {
-  font-size: 18px;
-  padding: 20px;
-}
-.container-inputs .inputs input {
-  font-size: 18px;
-  border: 1px solid #333;
-  width: 100px;
-  height: 40px;
-  text-align: center;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-.action {
+.actions {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.actions .generate {
-  margin-top: 20px;
-  background-color: darkslateblue;
-  color: #fff;
-  width: 200px;
-  height: 40px;
-  border-radius: 5px;
-  transition: 0.3s;
-}
-
-.actions .generate:hover {
-  background-color: #0e2b7a;
-}
-.actions .generate:disabled {
-  background-color: #e9e9e9;
-  color: #999;
-}
-
-.actions .reset {
-  margin-top: 20px;
-  background-color: rgb(18, 139, 18);
-  color: #fff;
-  width: 200px;
-  height: 40px;
-  border-radius: 5px;
-  transition: 0.3s;
 }
 
 .mocks {
