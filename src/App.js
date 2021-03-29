@@ -23,6 +23,7 @@ const App = () => {
     setSub({});
     setOutput(false);
   };
+
   return (
     <div className="App">
       <h1>Generate Faker Mock</h1>
